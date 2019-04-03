@@ -19,11 +19,15 @@ const path = require('path');
     document.getElementsByTagName("head")[0].appendChild(script);
   })
 
-  const addFunc = function(a, b) { return a + b; };
+
 
   // test toccata.one
   await page.evaluate(() => {
-    toccata.one(addFunc, [1, 2])
+    var addFunc = function(a, b) { return a + b; };
+    toccata.one({
+      func: addFunc,
+      args: [1, 2]
+    })
       .then(result => {
         alert(result)
       })
@@ -31,9 +35,16 @@ const path = require('path');
 
   //test toccata.all
   await page.evaluate(() => {
-    toccata.all([
-      [addFunc, [3, 4]],
-      [addFunc, [5, 6]]
+    var addFunc = function(a, b) { return a + b; };
+    toccata.run([
+      {
+        func: addFunc,
+        args: [3, 4]
+      },
+      {
+        func: addFunc,
+        args: [5, 6]
+      },
     ])
       .then(result => {
         alert(result)

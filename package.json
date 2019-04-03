@@ -4,7 +4,6 @@
   "description": "Easy multi-thread task processing for brower-side Javascript based on Web Worker",
   "main": "index.js",
   "scripts": {
-    "test-phantom": "phantomjs test/run-jasmine.js",
     "test": "node test/main.js"
   },
   "repository": {
