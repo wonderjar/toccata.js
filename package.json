@@ -1,0 +1,23 @@
+{
+  "name": "toccatajs",
+  "version": "0.0.1",
+  "description": "Easy multi-thread task processing for brower-side Javascript based on Web Worker",
+  "main": "index.js",
+  "scripts": {
+    "test-phantom": "phantomjs test/run-jasmine.js",
+    "test": "node test/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wonderjar/toccata.js.git"
+  },
+  "author": "wonderjar <jarancn@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/wonderjar/toccata.js/issues"
+  },
+  "homepage": "https://github.com/wonderjar/toccata.js#readme",
+  "devDependencies": {
+    "puppeteer": "^1.14.0"
+  }
+}
