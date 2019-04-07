@@ -51,5 +51,18 @@ const path = require('path');
       })
   })
 
+  // test callback parameter
+  await page.evaluate(() => {
+    var testFunc = function(a, b) {
+      postMessage('Test callback');
+      return a + b;
+    };
+    toccata.one({
+      func: testFunc,
+      args: [1, 2],
+      callback: (testStr) => alert(testStr)
+    })
+  })
+
   // await browser.close();
 })();

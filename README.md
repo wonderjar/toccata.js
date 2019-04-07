@@ -14,6 +14,7 @@ Prop | Type | Required | Description
 ------------ | ------------ | ------------- | -------------
 func | Function | True | The task function 
 args | Array | False | Arguments for the task function
+callback | Function | False | Callback of manually call postMessage in func
 
 Example
 ```javascript
@@ -32,4 +33,15 @@ toccata.run([
   ]).then(result => {
     //...
   })
+
+// Do continuous job
+toccata.run({
+  func: () => { setInterval(() => postMessage('Hello'), 4000) },
+  callback: (result) => alert(result)
+})
 ```
+
+Roadmap
+
+- Exception handler
+- Wrap importScripts
