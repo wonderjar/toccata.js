@@ -15,6 +15,7 @@ Prop | Type | Required | Description
 func | Function | True | The task function 
 args | Array | False | Arguments for the task function
 callback | Function | False | Callback of manually call postMessage in func
+importScripts | Array | False | Array of path of external scripts
 
 Example
 ```javascript
@@ -39,9 +40,14 @@ toccata.run({
   func: () => { setInterval(() => postMessage('Hello'), 4000) },
   callback: (result) => alert(result)
 })
+
+// Import external scripts
+toccata.run({
+  func: () => _.max([1,2,3],
+  importScripts: ['https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js']
+})
 ```
 
 Roadmap
 
 - Exception handler
-- Wrap importScripts

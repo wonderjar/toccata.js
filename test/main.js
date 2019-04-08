@@ -57,11 +57,21 @@ const path = require('path');
       postMessage('Test callback');
       return a + b;
     };
-    toccata.one({
+    toccata.run({
       func: testFunc,
       args: [1, 2],
       callback: (testStr) => alert(testStr)
     })
+  })
+
+  await page.evaluate(() => {
+    toccata.run({
+      func: () => _.max([1,2,3,4,5]),
+      importScripts: ['https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.17.11/lodash.js']
+    })
+      .then(result => {
+        alert(result)
+      })
   })
 
   // await browser.close();
